@@ -1,0 +1,37 @@
+{
+    "name": "eacode/eacode-kernel",
+    "description": "Eacode Kernel, a lightweight PHP micro kernel based on Slim 4",
+    "homepage": "https://eacode.lv",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Core\\SlimMicroKernel\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ilja Nosov",
+            "email": "info@eacode.lv",
+            "homepage": "https://eacode.lv"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^8.2",
+        "slim/slim": "^4",
+        "slim/psr7": "^1",
+        "monolog/monolog": "^3",
+        "php-di/php-di": "^7.0"
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://repo.packagist.org"
+        },
+        "packagist.org": {
+            "type": "composer",
+            "url": "https://repo.packagist.org"
+        }
+    }
+}

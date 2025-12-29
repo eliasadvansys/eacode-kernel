@@ -1,0 +1,48 @@
+# Project: Eacode Kernel
+# File: docker-compose.yml
+# Purpose: Define local services for EAK (web and MariaDB).
+# Author: Ilja Nosov <info@eacode.lv>
+# Copyright (c) 2025 eacode.lv
+# License: MIT
+# Date: 2025-12-29
+
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      # Host 8181 maps to Apache inside the container.
+      - "8181:80"
+    volumes:
+      - ./:/var/www/html
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: eak
+      DB_USER: user
+      DB_PASS: qwerty
+    depends_on:
+      db:
+        condition: service_healthy
+    # Install dependencies if needed, run migrations, then start Apache.
+    command: sh -c "if [ ! -f /var/www/html/vendor/autoload.php ]; then composer install --no-interaction --no-progress; fi; php /var/www/html/bin/migrate.php && apache2-foreground"
+
+  db:
+    image: mariadb:11
+    environment:
+      MARIADB_DATABASE: eak
+      MARIADB_USER: user
+      MARIADB_PASSWORD: qwerty
+      MARIADB_ROOT_PASSWORD: qwerty
+    # Healthcheck allows the web container to wait for DB readiness.
+    healthcheck:
+      test: ["CMD-SHELL", "mariadb-admin ping -h 127.0.0.1 -u$$MARIADB_USER -p$$MARIADB_PASSWORD"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    # volumes:
+    #   - ./db/migrations:/docker-entrypoint-initdb.d:ro
+    # Not needed because migrations run in the web container on startup.
+    ports:
+      - "3308:3306"

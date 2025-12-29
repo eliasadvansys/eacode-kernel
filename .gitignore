@@ -1,0 +1,12 @@
+# Project: Eacode Kernel
+# File: .gitignore
+# Purpose: Ignore generated and local-only files.
+# Author: Ilja Nosov <info@eacode.lv>
+# Copyright (c) 2025 eacode.lv
+# License: MIT
+# Date: 2025-12-29
+
+/vendor/
+/.idea/
+/.env
+/AGENTS.md
