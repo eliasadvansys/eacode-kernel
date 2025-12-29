@@ -44,5 +44,21 @@ php bin/migrate.php
 - `src/` controllers, API handlers, models, repositories
 - `db/migrations/` SQL migrations
 
+## Use as Template
+You can use this repository as a project skeleton:
+
+```bash
+git clone https://github.com/eliasadvansys/eacode-kernel.git my-new-project
+cd my-new-project
+git remote remove origin
+git remote add origin <new-repo-url>
+```
+
+Then update:
+- `composer.json` name/description/homepage
+- `config/routes.php` (remove test routes you do not need)
+- `db/migrations/` (remove test migration if not needed)
+- `docker-compose.yml` database settings
+
 ## License
 MIT. Slim and its dependencies remain under their respective licenses.
