@@ -22,5 +22,5 @@ Thanks for helping improve EAK. Please keep changes small and focused.
 - New files must start with the standard project header
 
 ## Commits & PRs
-- Use concise, imperative commit messages
+- Use Conventional Commits (https://www.conventionalcommits.org)
 - Explain behavior changes and add reproduction steps if relevant
