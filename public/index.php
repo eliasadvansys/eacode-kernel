@@ -21,6 +21,9 @@ $container = require __DIR__ . '/../config/container.php';
 AppFactory::setContainer($container);
 $app = AppFactory::create();
 
+// Enable parsing JSON/form bodies for API requests.
+$app->addBodyParsingMiddleware();
+
 // Register application routes.
 $registerRoutes = require __DIR__ . '/../config/routes.php';
 $registerRoutes($app);

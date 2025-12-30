@@ -6,8 +6,6 @@
 # License: MIT
 # Date: 2025-12-29
 
-version: '3.8'
-
 services:
   web:
     build: .

@@ -38,6 +38,17 @@ Run migrations manually (inside container or locally with env vars):
 php bin/migrate.php
 ```
 
+## Makefile Shortcuts
+Common developer commands are available via `make`:
+```bash
+make up
+make down
+make restart
+make migrate
+make logs
+make shell
+```
+
 ## Project Structure
 - `public/` front controller (`index.php`) and rewrite rules
 - `config/` routes, DI container, DB settings
