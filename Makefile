@@ -1,6 +1,5 @@
 # Project: Eacode Kernel (EAK)
-# File:
-file
+# File: Makefile
 # Purpose: Provide short helper commands for local development.
 # Author: Ilja Nosov <info@eacode.lv>
 # Copyright (c) 2025 eacode.lv
